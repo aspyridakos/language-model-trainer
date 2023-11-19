@@ -1,6 +1,7 @@
 import json
 import random
-from gensim import downloader, similarities
+from gensim import downloader
+from csv import writer, DictWriter
 
 
 def get_closest_synonym(word_data):
@@ -61,10 +62,14 @@ def task_1():
 
     # Task 1 data to CSV file
     with open('word2vec-google-news-300-details.csv', 'a', newline='') as file:
+        csv_writer = writer(file)
+        dw = DictWriter(file, delimiter=',',
+                   fieldnames=["Question Word", "Answer Word", "Guess Word", "Evaluation Type"])
+        dw.writeheader()
         for word_data in dataset:
             closest_choice, status = get_closest_synonym(word_data)
-            file.write(f"{word_data['question']},{word_data['answer']},{closest_choice}, {status}")
             print(f"{word_data['question']},{word_data['answer']},{closest_choice}, {status}")
+            csv_writer.writerow([word_data['question'], word_data['answer'], closest_choice, status])
 
     f.close()
     file.close()
