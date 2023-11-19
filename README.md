@@ -5,4 +5,4 @@ Uses Word2Vec to find closest synonyms of words and their provided synonym optio
 // TODO: Add missing IDs
 - Alexandra Spyridakos 40175280
 - Christos Karabatsos
-- Oumar Barry
+- Oumar Barry 40172989
