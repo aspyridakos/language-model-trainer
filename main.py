@@ -25,7 +25,7 @@ def get_closest_synonym(word_data):
     for choice in choices:
         if choice in wv:
             # Calculating cosine similarity of 2 embeddings (2 vectors)
-            similarities_dict['choice'] = wv.similarity(question, choice)
+            similarities_dict[choice] = wv.similarity(question, choice)
 
     # Remove "None" values for choices that are not in wv
     filtered_similarities_dict = {k: v for k, v in similarities_dict.items() if v is not None}
@@ -64,6 +64,7 @@ def task_1():
         for word_data in dataset:
             closest_choice, status = get_closest_synonym(word_data)
             file.write(f"{word_data['question']},{word_data['answer']},{closest_choice}, {status}")
+            print(f"{word_data['question']},{word_data['answer']},{closest_choice}, {status}")
 
     f.close()
     file.close()
