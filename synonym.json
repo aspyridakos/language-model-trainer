@@ -1,0 +1,802 @@
+[
+    {
+        "answer": "tremendously",
+        "choices": [
+            "appropriately",
+            "uniquely",
+            "tremendously",
+            "decidedly"
+        ],
+        "question": "enormously"
+    },
+    {
+        "answer": "stipulations",
+        "choices": [
+            "stipulations",
+            "interrelations",
+            "jurisdictions",
+            "interpretations"
+        ],
+        "question": "provisions"
+    },
+    {
+        "answer": "randomly",
+        "choices": [
+            "dangerously",
+            "densely",
+            "randomly",
+            "linearly"
+        ],
+        "question": "haphazardly"
+    },
+    {
+        "answer": "conspicuous",
+        "choices": [
+            "battered",
+            "ancient",
+            "mysterious",
+            "conspicuous"
+        ],
+        "question": "prominent"
+    },
+    {
+        "answer": "pinnacle",
+        "choices": [
+            "completion",
+            "pinnacle",
+            "outset",
+            "decline"
+        ],
+        "question": "zenith"
+    },
+    {
+        "answer": "imperfect",
+        "choices": [
+            "tiny",
+            "imperfect",
+            "lustrous",
+            "crude"
+        ],
+        "question": "flawed"
+    },
+    {
+        "answer": "desperately",
+        "choices": [
+            "typically",
+            "conceivably",
+            "tentatively",
+            "desperately"
+        ],
+        "question": "urgently"
+    },
+    {
+        "answer": "eaten",
+        "choices": [
+            "bred",
+            "caught",
+            "eaten",
+            "supplied"
+        ],
+        "question": "consumed"
+    },
+    {
+        "answer": "coming",
+        "choices": [
+            "coming",
+            "arrest",
+            "financing",
+            "stability"
+        ],
+        "question": "advent"
+    },
+    {
+        "answer": "succinctly",
+        "choices": [
+            "powerfully",
+            "positively",
+            "freely",
+            "succinctly"
+        ],
+        "question": "concisely"
+    },
+    {
+        "answer": "greetings",
+        "choices": [
+            "information",
+            "ceremonies",
+            "greetings",
+            "privileges"
+        ],
+        "question": "salutes"
+    },
+    {
+        "answer": "alone",
+        "choices": [
+            "alert",
+            "restless",
+            "alone",
+            "fearless"
+        ],
+        "question": "solitary"
+    },
+    {
+        "answer": "accelerate",
+        "choices": [
+            "permit",
+            "determine",
+            "accelerate",
+            "accompany"
+        ],
+        "question": "hasten"
+    },
+    {
+        "answer": "endurance",
+        "choices": [
+            "endurance",
+            "skill",
+            "generosity",
+            "disturbance"
+        ],
+        "question": "perseverance"
+    },
+    {
+        "answer": "imaginative",
+        "choices": [
+            "familiar",
+            "imaginative",
+            "apparent",
+            "logical"
+        ],
+        "question": "fanciful"
+    },
+    {
+        "answer": "demonstrated",
+        "choices": [
+            "demonstrated",
+            "published",
+            "repeated",
+            "postponed"
+        ],
+        "question": "showed"
+    },
+    {
+        "answer": "continually",
+        "choices": [
+            "instantly",
+            "continually",
+            "rapidly",
+            "accidentally"
+        ],
+        "question": "constantly"
+    },
+    {
+        "answer": "subjects",
+        "choices": [
+            "training",
+            "salaries",
+            "subjects",
+            "benefits"
+        ],
+        "question": "issues"
+    },
+    {
+        "answer": "supply",
+        "choices": [
+            "supply",
+            "impress",
+            "protect",
+            "advise"
+        ],
+        "question": "furnish"
+    },
+    {
+        "answer": "expensive",
+        "choices": [
+            "expensive",
+            "beautiful",
+            "popular",
+            "complicated"
+        ],
+        "question": "costly"
+    },
+    {
+        "answer": "acknowledged",
+        "choices": [
+            "successful",
+            "depicted",
+            "acknowledged",
+            "welcomed"
+        ],
+        "question": "recognized"
+    },
+    {
+        "answer": "location",
+        "choices": [
+            "climate",
+            "latitude",
+            "sea",
+            "location"
+        ],
+        "question": "spot"
+    },
+    {
+        "answer": "earn",
+        "choices": [
+            "earn",
+            "print",
+            "trade",
+            "borrow"
+        ],
+        "question": "make"
+    },
+    {
+        "answer": "frequently",
+        "choices": [
+            "definitely",
+            "frequently",
+            "chemically",
+            "hardly"
+        ],
+        "question": "often"
+    },
+    {
+        "answer": "relaxed",
+        "choices": [
+            "frontier",
+            "boring",
+            "farming",
+            "relaxed"
+        ],
+        "question": "easygoing"
+    },
+    {
+        "answer": "argument",
+        "choices": [
+            "war",
+            "argument",
+            "election",
+            "competition"
+        ],
+        "question": "debate"
+    },
+    {
+        "answer": "thin",
+        "choices": [
+            "clear",
+            "freezing",
+            "thin",
+            "poisonous"
+        ],
+        "question": "narrow"
+    },
+    {
+        "answer": "planned",
+        "choices": [
+            "planned",
+            "explained",
+            "studied",
+            "discarded"
+        ],
+        "question": "arranged"
+    },
+    {
+        "answer": "limitless",
+        "choices": [
+            "limitless",
+            "relative",
+            "unusual",
+            "structural"
+        ],
+        "question": "infinite"
+    },
+    {
+        "answer": "striking",
+        "choices": [
+            "striking",
+            "prickly",
+            "entertaining",
+            "incidental"
+        ],
+        "question": "showy"
+    },
+    {
+        "answer": "imposed",
+        "choices": [
+            "imposed",
+            "believed",
+            "requested",
+            "correlated"
+        ],
+        "question": "levied"
+    },
+    {
+        "answer": "skillfully",
+        "choices": [
+            "skillfully",
+            "prudently",
+            "occasionally",
+            "humorously"
+        ],
+        "question": "deftly"
+    },
+    {
+        "answer": "circulate",
+        "choices": [
+            "commercialize",
+            "circulate",
+            "research",
+            "acknowledge"
+        ],
+        "question": "distribute"
+    },
+    {
+        "answer": "differences",
+        "choices": [
+            "weights",
+            "deposits",
+            "wavelengths",
+            "differences"
+        ],
+        "question": "discrepancies"
+    },
+    {
+        "answer": "productive",
+        "choices": [
+            "productive",
+            "serious",
+            "capable",
+            "promising"
+        ],
+        "question": "prolific"
+    },
+    {
+        "answer": "unequaled",
+        "choices": [
+            "unrecognized",
+            "unequaled",
+            "alienated",
+            "emulated"
+        ],
+        "question": "unmatched"
+    },
+    {
+        "answer": "uniquely",
+        "choices": [
+            "partly",
+            "uniquely",
+            "patriotically",
+            "suspiciously"
+        ],
+        "question": "peculiarly"
+    },
+    {
+        "answer": "color",
+        "choices": [
+            "glare",
+            "contrast",
+            "color",
+            "scent"
+        ],
+        "question": "hue"
+    },
+    {
+        "answer": "rear",
+        "choices": [
+            "curved",
+            "muscular",
+            "hairy",
+            "rear"
+        ],
+        "question": "hind"
+    },
+    {
+        "answer": "accentuate",
+        "choices": [
+            "alter",
+            "imitate",
+            "accentuate",
+            "restore"
+        ],
+        "question": "highlight"
+    },
+    {
+        "answer": "hurriedly",
+        "choices": [
+            "hurriedly",
+            "shrewdly",
+            "habitually",
+            "chronologically"
+        ],
+        "question": "hastily"
+    },
+    {
+        "answer": "mild",
+        "choices": [
+            "cold",
+            "mild",
+            "short",
+            "windy"
+        ],
+        "question": "temperate"
+    },
+    {
+        "answer": "smile",
+        "choices": [
+            "exercise",
+            "rest",
+            "joke",
+            "smile"
+        ],
+        "question": "grin"
+    },
+    {
+        "answer": "orally",
+        "choices": [
+            "orally",
+            "overtly",
+            "fittingly",
+            "verbosely"
+        ],
+        "question": "verbally"
+    },
+    {
+        "answer": "doctor",
+        "choices": [
+            "chemist",
+            "pharmacist",
+            "nurse",
+            "doctor"
+        ],
+        "question": "physician"
+    },
+    {
+        "answer": "basically",
+        "choices": [
+            "possibly",
+            "eagerly",
+            "basically",
+            "ordinarily"
+        ],
+        "question": "essentially"
+    },
+    {
+        "answer": "sharp",
+        "choices": [
+            "useful",
+            "simple",
+            "famous",
+            "sharp"
+        ],
+        "question": "keen"
+    },
+    {
+        "answer": "positioned",
+        "choices": [
+            "rotating",
+            "isolated",
+            "emptying",
+            "positioned"
+        ],
+        "question": "situated"
+    },
+    {
+        "answer": "major",
+        "choices": [
+            "most",
+            "numerous",
+            "major",
+            "exceptional"
+        ],
+        "question": "principal"
+    },
+    {
+        "answer": "gradually",
+        "choices": [
+            "rarely",
+            "gradually",
+            "effectively",
+            "continuously"
+        ],
+        "question": "slowly"
+    },
+    {
+        "answer": "constructed",
+        "choices": [
+            "constructed",
+            "proposed",
+            "financed",
+            "organized"
+        ],
+        "question": "built"
+    },
+    {
+        "answer": "jobs",
+        "choices": [
+            "customers",
+            "materials",
+            "shops",
+            "jobs"
+        ],
+        "question": "tasks"
+    },
+    {
+        "answer": "improbable",
+        "choices": [
+            "improbable",
+            "disagreeable",
+            "different",
+            "unpopular"
+        ],
+        "question": "unlikely"
+    },
+    {
+        "answer": "apathetically",
+        "choices": [
+            "customarily",
+            "bipartisanly",
+            "apathetically",
+            "unconventionally"
+        ],
+        "question": "halfheartedly"
+    },
+    {
+        "answer": "chronicles",
+        "choices": [
+            "homes",
+            "trails",
+            "chronicles",
+            "songs"
+        ],
+        "question": "annals"
+    },
+    {
+        "answer": "furiously",
+        "choices": [
+            "distinctively",
+            "mysteriously",
+            "abruptly",
+            "furiously"
+        ],
+        "question": "wildly"
+    },
+    {
+        "answer": "acclaimed",
+        "choices": [
+            "judged",
+            "acclaimed",
+            "remembered",
+            "addressed"
+        ],
+        "question": "hailed"
+    },
+    {
+        "answer": "mastery",
+        "choices": [
+            "observation",
+            "love",
+            "awareness",
+            "mastery"
+        ],
+        "question": "command"
+    },
+    {
+        "answer": "devised",
+        "choices": [
+            "devised",
+            "cleaned",
+            "requested",
+            "supervised"
+        ],
+        "question": "concocted"
+    },
+    {
+        "answer": "potential",
+        "choices": [
+            "particular",
+            "prudent",
+            "potential",
+            "prominent"
+        ],
+        "question": "prospective"
+    },
+    {
+        "answer": "broadly",
+        "choices": [
+            "descriptively",
+            "broadly",
+            "controversially",
+            "accurately"
+        ],
+        "question": "generally"
+    },
+    {
+        "answer": "prolonged",
+        "choices": [
+            "prolonged",
+            "refined",
+            "lowered",
+            "analyzed"
+        ],
+        "question": "sustained"
+    },
+    {
+        "answer": "dangerous",
+        "choices": [
+            "binding",
+            "exciting",
+            "offensive",
+            "dangerous"
+        ],
+        "question": "perilous"
+    },
+    {
+        "answer": "peacefulness",
+        "choices": [
+            "peacefulness",
+            "harshness",
+            "weariness",
+            "happiness"
+        ],
+        "question": "tranquillity"
+    },
+    {
+        "answer": "disperse",
+        "choices": [
+            "disperse",
+            "isolate",
+            "disguise",
+            "photograph"
+        ],
+        "question": "dissipate"
+    },
+    {
+        "answer": "chiefly",
+        "choices": [
+            "occasionally",
+            "cautiously",
+            "consistently",
+            "chiefly"
+        ],
+        "question": "primarily"
+    },
+    {
+        "answer": "conversational",
+        "choices": [
+            "recorded",
+            "misunderstood",
+            "incorrect",
+            "conversational"
+        ],
+        "question": "colloquial"
+    },
+    {
+        "answer": "settled",
+        "choices": [
+            "publicized",
+            "forgotten",
+            "settled",
+            "examined"
+        ],
+        "question": "resolved"
+    },
+    {
+        "answer": "possible",
+        "choices": [
+            "permitted",
+            "possible",
+            "equitable",
+            "evident"
+        ],
+        "question": "feasible"
+    },
+    {
+        "answer": "rapidly",
+        "choices": [
+            "frequently",
+            "actually",
+            "rapidly",
+            "repeatedly"
+        ],
+        "question": "expeditiously"
+    },
+    {
+        "answer": "proportion",
+        "choices": [
+            "volume",
+            "sample",
+            "proportion",
+            "profit"
+        ],
+        "question": "percentage"
+    },
+    {
+        "answer": "ended",
+        "choices": [
+            "ended",
+            "posed",
+            "postponed",
+            "evaluated"
+        ],
+        "question": "terminated"
+    },
+    {
+        "answer": "alike",
+        "choices": [
+            "hard",
+            "complex",
+            "alike",
+            "sharp"
+        ],
+        "question": "uniform"
+    },
+    {
+        "answer": "solve",
+        "choices": [
+            "list",
+            "solve",
+            "divide",
+            "express"
+        ],
+        "question": "figure"
+    },
+    {
+        "answer": "enough",
+        "choices": [
+            "recent",
+            "physiological",
+            "enough",
+            "valuable"
+        ],
+        "question": "sufficient"
+    },
+    {
+        "answer": "manner",
+        "choices": [
+            "ration",
+            "fathom",
+            "craze",
+            "manner"
+        ],
+        "question": "fashion"
+    },
+    {
+        "answer": "sold",
+        "choices": [
+            "frozen",
+            "sold",
+            "sweetened",
+            "diluted"
+        ],
+        "question": "marketed"
+    },
+    {
+        "answer": "larger",
+        "choices": [
+            "steadier",
+            "closer",
+            "larger",
+            "better"
+        ],
+        "question": "bigger"
+    },
+    {
+        "answer": "origins",
+        "choices": [
+            "origins",
+            "rituals",
+            "cure",
+            "function"
+        ],
+        "question": "roots"
+    },
+    {
+        "answer": "ordinarily",
+        "choices": [
+            "haltingly",
+            "ordinarily",
+            "permanently",
+            "periodically"
+        ],
+        "question": "normally"
+    }
+]
