@@ -27,9 +27,12 @@ def get_closest_synonym(word_data):
             # Calculating cosine similarity of 2 embeddings (2 vectors)
             similarities_dict['choice'] = wv.similarity(question, choice)
 
-    # Getting the closest synonym choice (returns list in the event of a tie)
-    sorted_similarities_dict = dict(sorted(similarities_dict.items(), key=lambda x: x[1], reverse=True))
-    max_value = sorted_similarities_dict[next(iter(sorted_similarities_dict))]
+    # Remove "None" values for choices that are not in wv
+    filtered_similarities_dict = {k: v for k, v in similarities_dict.items() if v is not None}
+
+    # Sorting the dictionary based on values
+    sorted_similarities_dict = dict(sorted(filtered_similarities_dict.items(), key=lambda x: x[1], reverse=True))
+    max_value = sorted_similarities_dict[next(iter(filtered_similarities_dict))]
 
     # Getting top choice(s) for cosine similarity (also handles ties)
     closest_choices = [key for key, value in sorted_similarities_dict.items() if value == max_value]
@@ -60,7 +63,7 @@ def task_1():
     with open('word2vec-google-news-300-details.csv', 'a', newline='') as file:
         for word_data in dataset:
             closest_choice, status = get_closest_synonym(word_data)
-            file.write(f"{word_data.question},{word_data.answer},{closest_choice}, {status}")
+            file.write(f"{word_data['question']},{word_data['answer']},{closest_choice}, {status}")
 
     f.close()
     file.close()
