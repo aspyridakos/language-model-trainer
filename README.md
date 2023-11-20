@@ -4,5 +4,5 @@ Uses Word2Vec to find closest synonyms of words and their provided synonym optio
 ## Contributors
 // TODO: Add missing IDs
 - Alexandra Spyridakos 40175280
-- Christos Karabatsos
+- Christos Karabatsos 40132730
 - Oumar Barry 40172989
