@@ -2,7 +2,7 @@ import json
 import random
 from gensim import downloader
 import csv
-
+import matplotlib.pyplot as plt
 def get_closest_synonym(word_data, wv):
     """
     Get the closest synonym of a word from a list of word choices.
@@ -39,8 +39,36 @@ def evaluate_model(model_name, dataset):
 
     vocab_size = len(wv.key_to_index)
     accuracy = correct_count / non_guess_count if non_guess_count > 0 else 0
-    return [model_name, vocab_size, correct_count, non_guess_count, accuracy]
+    return {
+        'model_name': model_name,
+        'vocab_size': vocab_size,
+        'correct_count': correct_count,
+        'non_guess_count': non_guess_count,
+        'accuracy': accuracy
+    }
+def plot_model_performance(results, random_baseline_accuracy, human_gold_standard=None):
+    """
+    Plot the performance of models along with the random baseline and human gold-standard.
+    """
+    model_names = [result['model_name'] for result in results]
+    accuracies = [result['accuracy'] for result in results]
 
+    # Now append the random baseline and human gold-standard to the list for plotting.
+    model_names.append('Random Baseline')
+    accuracies.append(random_baseline_accuracy)
+
+    if human_gold_standard:
+        model_names += ('Human Gold-Standard',)
+        accuracies += (human_gold_standard,)
+
+    plt.figure(figsize=(10, 8))
+    plt.bar(model_names, accuracies, color='skyblue')
+    plt.title('Model Performance Comparison')
+    plt.xlabel('Models')
+    plt.ylabel('Accuracy')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig('model_performance.png')
 def main():
     # Load dataset
     with open('synonym.json', 'r') as file:
@@ -59,6 +87,16 @@ def main():
         analysis_writer = csv.writer(analysis_file)
         for result in results:
             analysis_writer.writerow(result)
+
+    # Plot model performance
+    random_baseline_accuracy = 1 / len(dataset[0]['choices'])
+    # Plot model performance
+    # # Assuming a random baseline accuracy of 25% for guessing one correct answer out of four options
+    # random_baseline_accuracy = 0.25
+    # Replace None with the actual human gold-standard accuracy if you have it
+    human_gold_standard_accuracy = None
+    plot_model_performance(results, random_baseline_accuracy, human_gold_standard_accuracy)
+
 
 if __name__ == '__main__':
     main()
