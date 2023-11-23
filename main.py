@@ -1,79 +1,51 @@
 import json
 import random
 from gensim import downloader
-from csv import writer, DictWriter
+import csv
 
 
-def get_closest_synonym(word_data):
+def get_closest_synonym(word_data, wv):
     """
     Get the closest synonym of a word from a list of word choices
     :param word_data:
+    :param wv: Word vectors model
     :return: most likely synonym choice
     """
-    wv = downloader.load('word2vec-google-news-300')
-
     choices = word_data['choices']
     question = word_data['question']
 
-    # Initializing dict
-    similarities_dict = dict.fromkeys(choices, None)
-
-    # Words are not in Word2Vec so we are guessing
-    # FIXME: do we need XOR here ("^" in python) instead of OR? => wording unclear
-    if question not in wv or [key for key in choices if key not in wv]:
+    # Check if the words are in the model's vocabulary
+    if question not in wv.key_to_index or not any(choice in wv.key_to_index for choice in choices):
         return random.choice(choices), "guess"
 
-    for choice in choices:
-        if choice in wv:
-            # Calculating cosine similarity of 2 embeddings (2 vectors)
-            similarities_dict[choice] = wv.similarity(question, choice)
+    # Calculate similarities only for words present in the model's vocabulary
+    similarities = {choice: wv.similarity(question, choice) for choice in choices if choice in wv.key_to_index}
 
-    # Remove "None" values for choices that are not in wv
-    filtered_similarities_dict = {k: v for k, v in similarities_dict.items() if v is not None}
+    # Find the choice with the highest similarity
+    closest_choice = max(similarities, key=similarities.get, default=None)
 
-    # Sorting the dictionary based on values
-    sorted_similarities_dict = dict(sorted(filtered_similarities_dict.items(), key=lambda x: x[1], reverse=True))
-    max_value = sorted_similarities_dict[next(iter(filtered_similarities_dict))]
-
-    # Getting top choice(s) for cosine similarity (also handles ties)
-    closest_choices = [key for key, value in sorted_similarities_dict.items() if value == max_value]
-
-    closest_choice: str
-
-    # Getting random choice among the closest synonyms if there is a tie for cosine similarity
-    if len(closest_choices) > 1:
-        closest_choice = random.choice(closest_choices)
-    # Getting the best synonym choice if there is only one closest cosine similarity (no tie)
-    else:
-        closest_choice = closest_choices[0]
-
-    # Checking correctness of selected choice against data set
-    if closest_choice == word_data['answer']:
-        return closest_choice, "correct"
-
-    return closest_choice, "wrong"
+    # Return the result along with evaluation status
+    return (closest_choice, "correct") if closest_choice == word_data['answer'] else (closest_choice, "wrong")
 
 
 def task_1():
     """ Task 1 """
+    # Load model once
+    wv = downloader.load('word2vec-google-news-300')
+
     # Reading data set from JSON file
-    f = open('synonym.json')
-    dataset = json.load(f)
+    with open('synonym.json', 'r') as file:
+        dataset = json.load(file)
 
     # Task 1 data to CSV file
-    with open('word2vec-google-news-300-details.csv', 'a', newline='') as file:
-        csv_writer = writer(file)
-        dw = DictWriter(file, delimiter=',',
-                   fieldnames=["Question Word", "Answer Word", "Guess Word", "Evaluation Type"])
-        dw.writeheader()
+    with open('word2vec-google-news-300-details.csv', 'w', newline='') as csv_file:
+        csv_writer = csv.DictWriter(csv_file, delimiter=',', fieldnames=["Question Word", "Answer Word", "Guess Word", "Evaluation Type"])
+        csv_writer.writeheader()
+
         for word_data in dataset:
-            closest_choice, status = get_closest_synonym(word_data)
+            closest_choice, status = get_closest_synonym(word_data, wv)
             print(f"{word_data['question']},{word_data['answer']},{closest_choice}, {status}")
-            csv_writer.writerow([word_data['question'], word_data['answer'], closest_choice, status])
-
-    f.close()
-    file.close()
-
+            csv_writer.writerow({"Question Word": word_data['question'], "Answer Word": word_data['answer'], "Guess Word": closest_choice, "Evaluation Type": status})
 
 if __name__ == '__main__':
     task_1()
