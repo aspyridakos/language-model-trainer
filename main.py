@@ -84,7 +84,9 @@ def main():
 
     # Write analysis.csv
     with open('analysis.csv', 'w', newline='') as analysis_file:
-        analysis_writer = csv.writer(analysis_file)
+        fieldnames = ['model_name', 'vocab_size', 'correct_count', 'non_guess_count', 'accuracy']
+        analysis_writer = csv.DictWriter(analysis_file, fieldnames=fieldnames)
+        analysis_writer.writeheader()
         for result in results:
             analysis_writer.writerow(result)
 
