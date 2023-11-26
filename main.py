@@ -11,29 +11,42 @@ import nltk
 # nltk.download('punkt')
 
 
-def get_closest_synonym(word_data, wv):
+def get_closest_synonym(word_data, wv, custom=False):
     """
     Get the closest synonym of a word from a list of word choices.
     """
     choices = word_data['choices']
     question = word_data['question']
 
-    if question not in wv.key_to_index or not any(choice in wv.key_to_index for choice in choices):
-        return random.choice(choices), "guess"
+    if custom:
+        # FIXME: customize functionality to work with the gensim.Word2Vec.load version of models instead of the gensim.downloader.load model (non-custom)
+        if question not in wv or not any(choice in wv for choice in choices):
+            return random.choice(choices), "guess"
 
-    similarities = {choice: wv.similarity(question, choice) for choice in choices if choice in wv.key_to_index}
-    closest_choice = max(similarities, key=similarities.get, default=None)
-    return (closest_choice, "correct") if closest_choice == word_data['answer'] else (closest_choice, "wrong")
+        similarities = {choice: wv.similarity(question, choice) for choice in choices if choice in wv}
+        closest_choice = max(similarities, key=similarities.get, default=None)
+        return (closest_choice, "correct") if closest_choice == word_data['answer'] else (closest_choice, "wrong")
+
+    else:
+        if question not in wv.key_to_index or not any(choice in wv.key_to_index for choice in choices):
+            return random.choice(choices), "guess"
+
+        similarities = {choice: wv.similarity(question, choice) for choice in choices if choice in wv.key_to_index}
+        closest_choice = max(similarities, key=similarities.get, default=None)
+        return (closest_choice, "correct") if closest_choice == word_data['answer'] else (closest_choice, "wrong")
 
 
-def evaluate_model(model_name, dataset, corpus=None):
+def evaluate_model(model_name, dataset, custom=False):
     """
     Run the synonym task with a given model and dataset, then return analysis results.
     """
-    if corpus:
-        wv = downloader.load(corpus)
+    if custom:
+        wv = models.Word2Vec.load(model_name)
+        vocab_size = wv.max_vocab_size
     else:
         wv = downloader.load(model_name)
+        vocab_size = len(wv.key_to_index)
+
     correct_count = 0
     non_guess_count = 0
 
@@ -43,7 +56,7 @@ def evaluate_model(model_name, dataset, corpus=None):
         csv_writer.writeheader()
 
         for word_data in dataset:
-            closest_choice, status = get_closest_synonym(word_data, wv)
+            closest_choice, status = get_closest_synonym(word_data, wv, custom=custom)
             if status == "correct":
                 correct_count += 1
             if status != "guess":
@@ -51,7 +64,6 @@ def evaluate_model(model_name, dataset, corpus=None):
             csv_writer.writerow({"Question Word": word_data['question'], "Answer Word": word_data['answer'],
                                  "Guess Word": closest_choice, "Evaluation Type": status})
 
-    vocab_size = len(wv.key_to_index)
     accuracy = correct_count / non_guess_count if non_guess_count > 0 else 0
     return {
         'model_name': model_name,
@@ -89,9 +101,8 @@ def plot_model_performance(results, random_baseline_accuracy, human_gold_standar
 
 def processed_books():
     corpus_list = []
-    book_names = []
-
     directory = './books'
+
     for filename in os.listdir(directory):
         if filename.endswith('.txt'):
             with open(os.path.join(directory, filename), 'r', encoding='utf-8') as book_file:
@@ -102,15 +113,11 @@ def processed_books():
                 for params in params_list:
                     corpus = models.Word2Vec(sentences=sentences, window=params['window_size'],
                                              vector_size=params['embedding_size'])
+                    model_name = f"{filename.rstrip('.txt')}-E{params['embedding_size']}-W{params['window_size']}-details"
+                    corpus.save(model_name)
+                    corpus_list.append(model_name)
 
-                    book_name = f"{filename.rstrip('.txt')}_corpus-E{params['embedding_size']}-W{params['window_size']}"
-                    book_names.append(book_name)
-
-                    corpus_name = f"{book_name}.model"
-                    corpus.save(corpus_name)
-                    corpus_list.append(corpus_name)
-
-    return book_names, corpus_list
+    return corpus_list
 
 
 def main():
@@ -118,20 +125,19 @@ def main():
     with open('synonym.json', 'r') as file:
         dataset = json.load(file)
 
-    book_names, corpus_list = processed_books()
+    corpus_list = processed_books()
 
     # Model names list
     model_names = ['word2vec-google-news-300', 'glove-wiki-gigaword-100', 'glove-twitter-100', 'glove-twitter-25',
-                   'glove-twitter-50'] + book_names
+                   'glove-twitter-50']
 
     # Run models and gather results
     results = []
-    for model_name in model_names:
-        corpus_index = model_names.index(model_name)
-        if corpus_index > 4:
-            results.append(evaluate_model(model_name, dataset, corpus_list[corpus_index - 4]))
-        else:
-            results.append(evaluate_model(model_name, dataset))
+    for model in model_names:
+        results.append(evaluate_model(model_name=model, dataset=dataset))
+
+    for model in corpus_list:
+        results.append(evaluate_model(model_name=model, dataset=dataset, custom=True))
 
     # Write analysis.csv
     with open('analysis.csv', 'w', newline='') as analysis_file:
