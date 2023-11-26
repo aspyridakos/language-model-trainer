@@ -113,7 +113,7 @@ def processed_books():
                 for params in params_list:
                     corpus = models.Word2Vec(sentences=sentences, window=params['window_size'],
                                              vector_size=params['embedding_size'])
-                    model_name = f"{filename.rstrip('.txt')}-E{params['embedding_size']}-W{params['window_size']}-details"
+                    model_name = f"{filename.rstrip('.txt')}-E{params['embedding_size']}-W{params['window_size']}"
                     corpus.save(model_name)
                     corpus_list.append(model_name)
 
