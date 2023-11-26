@@ -14,4 +14,4 @@ python main.py
 ```
 
 ### Sources
-Book files have been installed from [gutenberg.org](https://www.gutenberg.org/), a free and open source digital library of literature no longer subject to copyright laws. 
+Book files have been installed from [gutenberg.org](https://www.gutenberg.org/), a free and open-source digital library of literature no longer subject to copyright laws. 
