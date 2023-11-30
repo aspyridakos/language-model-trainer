@@ -82,10 +82,9 @@ def evaluate_model(model_name, dataset, gold_standard, custom=False):
             # Increment human_correct_count if the guess matches the human gold standard answer for the question word
             if closest_choice == gold_standard.get(word_data['question']):
                 human_correct_count += 1
-            # Status should be 'correct' if it's a correct guess, otherwise keep the original status
-            evaluation_status = "correct" if is_correct_guess else status
+
             csv_writer.writerow({"Question Word": word_data['question'], "Answer Word": word_data['answer'],
-                                 "Guess Word": closest_choice, "Evaluation Type": evaluation_status})
+                                 "Guess Word": closest_choice, "Evaluation Type": status})
 
     # Calculate the accuracy based on non-guess counts and include guesses that were correct
     accuracy = (correct_count + guess_correct_count) / len(dataset) if dataset else 0
