@@ -119,19 +119,25 @@ def plot_model_performance(results, random_baseline_accuracy, human_gold_standar
     width = 0.35       # the width of the bars
 
     fig, ax = plt.subplots(figsize=(12, 8))
+    # Plot model accuracy bars
     model_bars = ax.bar(ind - width/2, model_accuracies, width, label='Model Accuracy', color='skyblue')
+    # Plot human gold standard accuracy bars
     human_bars = ax.bar(ind + width/2, human_accuracies, width, label='Human Gold Standard Accuracy', color='green')
 
     # Append the random baseline and human gold-standard to the plot
-    ax.bar(n, random_baseline_accuracy, width, label='Random Baseline', color='gray')
-    ax.bar(n + width, human_gold_standard_accuracy, width, label='Human Gold-Standard', color='orange')
+    extra_bar_index = n + 1  # Position for the extra bars
+    ax.bar(extra_bar_index - width/2, [random_baseline_accuracy], width, label='Random Baseline', color='gray')
+    ax.bar(extra_bar_index + width/2, [human_gold_standard_accuracy], width, label='Human Gold-Standard', color='orange')
 
     # Add some text for labels, title and axes ticks
     ax.set_xlabel('Models')
     ax.set_ylabel('Accuracy')
     ax.set_title('Model vs Human Gold Standard Performance Comparison')
-    ax.set_xticks(ind + width / 2)
-    ax.set_xticklabels(model_names + ['Baseline'], rotation=45)
+
+    # Update x-tick positions and labels
+    ax.set_xticks(ind.tolist() + [extra_bar_index])  # Add extra bar index to the list
+    ax.set_xticklabels(model_names + ['Baseline & Human GS'], rotation=45)
+
     ax.legend()
 
     plt.tight_layout()
