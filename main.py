@@ -117,14 +117,14 @@ def plot_model_performance(results, random_baseline_accuracy, human_gold_standar
     ind = np.arange(n)  # the x locations for the groups
     width = 0.35       # the width of the bars
 
-    fig, ax = plt.subplots(figsize=(12, 8))
+    fig, ax = plt.subplots(figsize=(16, 12))
     # Plot model accuracy bars
     model_bars = ax.bar(ind - width/2, model_accuracies, width, label='Model Accuracy', color='skyblue')
     # Plot human gold standard accuracy bars
     human_bars = ax.bar(ind + width/2, human_accuracies, width, label='Human Gold Standard Accuracy', color='green')
 
     # Append the random baseline and human gold-standard to the plot
-    extra_bar_index = n + 1  # Position for the extra bars
+    extra_bar_index = n# Position for the extra bars
     ax.bar(extra_bar_index - width/2, [random_baseline_accuracy], width, label='Random Baseline', color='gray')
     ax.bar(extra_bar_index + width/2, [human_gold_standard_accuracy], width, label='Human Gold-Standard', color='orange')
 
@@ -135,7 +135,7 @@ def plot_model_performance(results, random_baseline_accuracy, human_gold_standar
 
     # Update x-tick positions and labels
     ax.set_xticks(ind.tolist() + [extra_bar_index])  # Add extra bar index to the list
-    ax.set_xticklabels(model_names + ['Baseline & Human GS'], rotation=45)
+    ax.set_xticklabels(model_names + ['Baseline & Human GS'], rotation=70)
 
     ax.legend()
 
